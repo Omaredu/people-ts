@@ -1,0 +1,34 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css")
+    link(rel="stylesheet", href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css")
+    script(src="https://code.jquery.com/jquery-3.6.0.min.js")
+    script(src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js")
+    title Document
+  body
+  table.table.display#data-table
+    thead
+      tr
+        th ID
+        th User Name
+        th Gender
+        th Favorite Color
+        th Favorite Food
+    tbody
+      each person in people
+        tr
+          td= person.id
+          td= person.user_name
+          td= person.gender
+          td= person.favorite_color
+          td
+            a.button(href=person.favorite_food)
+              p Favorite Food
+script.
+  $(document).ready(function() {
+    $('#data-table').DataTable();
+  })
